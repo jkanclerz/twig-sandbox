@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<div class="page-header">
+		<h1>Hello <small>{{ name }}</small></h1>
+	</div>
+	
+	
+	<ul class="list-group">
+	{% for feed in feeds %}
+		<li>
+			<div class="row">
+				<div class="col-md-6">
+					<img src="{{ feed.picture }}" class="img-circle"/>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<p>{{ feed.about }}</p>
+					</div>
+					<div class="row">
+						{% for item in feed.tags %}
+							<span class="btn btn-primary">
+								{{ item }}
+							</span>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</li>
+	{% endfor %}
+	</ul>
+{% endblock %}
